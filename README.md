@@ -1,6 +1,14 @@
-# Testeacc
+# Teste Accenture
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+
+## Requariments
+Angular 10 and Node v14.16.0
+
+## Instalation
+Clone project go to folder and use 
+
+run `npm install´
 
 ## Development server
 
