@@ -24,9 +24,16 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "core-js",
+              "raf",
+              "xlsx",
+              "@babel/runtime"]
           },
           "configurations": {
             "production": {
@@ -88,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "testeacc"
+    }
+  },
+  "defaultProject": "testeacc",
+  "cli": {
+    "analytics": "49cec456-5ea0-449d-9b68-1c9c6f13eb5a"
+  }
 }

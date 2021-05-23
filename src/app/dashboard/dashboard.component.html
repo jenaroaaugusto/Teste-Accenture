@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Test website a dashboard">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="adaptation" content="Jenaro Augustos for Test Accenture">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Dashboard Teste Accenture</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
+  </head>
+  <body>
+    
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#"><i class="bi bi-box-seam" style="height: 20px;"></i> Work Balance</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="#">Sign out</a>
+    </li>
+  </ul>
+</nav>
+<section>
+<div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="sidebar-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Pedidos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  Produtos
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+    
+          </div>
+        </main>
+
+      </div>
+  </div>
+</section>
+
+<section class="container">
+  <mat-tab-group>
+    <!-- <i class="bi bi-card-heading"></i> -->
+    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+
+    <mat-tab label="Dados principal" > 
+      <div class="container">
+        <div id="chartdiv" style="width: 100%; height: 500px"></div>
+        <div class='container'>
+          <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+          </mat-form-field>
+          
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="data">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+                <td mat-cell *matCellDef="let row"> {{row.data}} </td>
+              </ng-container>
+          
+              <!-- Progress Column -->
+              <ng-container matColumnDef="demanda">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Demanda </th>
+                <td mat-cell *matCellDef="let row"> {{row.demanda}}% </td>
+              </ng-container>
+    
+              <!-- Name Column -->
+    
+    
+              <ng-container matColumnDef="capacidade">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Capacidade </th>
+                <td mat-cell *matCellDef="let row"> {{row.capacidade}} </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="atendimentop">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Atendimento Planejado </th>
+                <td mat-cell *matCellDef="let row"> {{row.atendimentop}} </td>
+              </ng-container>
+          
+              <!-- Color Column -->
+              <ng-container matColumnDef="atendimentor">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Atendimento Realizado  </th>
+                <td mat-cell *matCellDef="let row"> {{row.atendimentor}} </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="desvio">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Desvio  </th>
+                <td mat-cell *matCellDef="let row"> {{row.desvio}} </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+          </div>
+          
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Dados Complementares"> 
+      <div class="container">
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Sobre
+              </mat-panel-title>
+              <mat-panel-description>
+                Informações basicas
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>Desenvolvolvido por Jenaro Augusto.</p>
+            <p>Ciencia da Computação UFSJ 2021</p>
+            <p>
+              <a style="color: black; text-decoration:none" href="https://github.com/jenaroaaugusto" title="Github"><i class="bi bi-github"></i>&nbsp;&nbsp; Github</a>
+            </p>
+            <p>
+              <a style="color: black;text-decoration:none " href="https://www.linkedin.com/in/jenaro-augusto-469888105/" title="linkedin"> <i class="bi bi-linkedin"></i>&nbsp;&nbsp; Linkedin</a>
+            </p>
+           
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Bibliotecas e Fontes Utilizadas
+              </mat-panel-title>
+              <mat-panel-description>
+                <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
+                Informaçãos 
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            Foi utilizado os seguintes recursos:
+            <ul>
+              <li>Template base sidebar: <a href="https://getbootstrap.com/docs/5.0/examples/dashboard/">Bootstrapious</a>.</li>
+              <li>As bibliotecas: amcharts , Angular Material</li>
+              <li>Framework: Bootstrap, Angular 11</li>
+            </ul>
+          </mat-expansion-panel>
+        </mat-accordion>        
+      </div>
+      
+    </mat-tab>
+
+  </mat-tab-group>
+
+</section>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+        <script src="dashboard.js"></script>
+  </body>
+</html>
