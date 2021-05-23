@@ -6,9 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Angular 10 and Node v14.16.0
 
 ## Instalation
-Clone project go to folder and use 
+Clone project go to folder and:
 
-run `npm install´
+run `npm install`
 
 ## Development server
 
